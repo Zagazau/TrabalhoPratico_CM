@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "MyTennis"
 include(":app")
- 
+include(":api")
