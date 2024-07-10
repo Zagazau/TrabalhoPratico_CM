@@ -86,7 +86,7 @@
             android:id="@+id/adicionar_torneios"
             android:layout_width="288dp"
             android:layout_height="wrap_content"
-            android:text=" Adicionar Torneios"
+            android:text="Adicionar Torneios"
             android:textColor="#000000"
             android:textSize="16sp" />
 
@@ -140,7 +140,7 @@
                 android:id="@+id/adicionar_jogos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Adicionar Jogos "
+                android:text="Adicionar Jogos"
                 android:textColor="#000000"
                 android:textSize="16sp" />
         </LinearLayout>
@@ -166,6 +166,31 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Consultar Utilizadores"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="69dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/green_retangle"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="17dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/adicionar_jogadores"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Adicionar Jogadores"
                 android:textColor="#000000"
                 android:textSize="16sp" />
         </LinearLayout>

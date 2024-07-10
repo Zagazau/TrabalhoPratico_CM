@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">MyTennis</string>
+
+    <string-array name="surfaces_array">
+        <item>Duro</item>
+        <item>Relva</item>
+        <item>Terra</item>
+    </string-array>
+
+    <string-array name="tournament_types_array">
+        <item>Simples</item>
+    </string-array>
 </resources>

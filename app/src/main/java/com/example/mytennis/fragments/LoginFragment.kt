@@ -77,7 +77,6 @@ class LoginFragment : Fragment() {
                             Toast.makeText(requireContext(), "Login successful", Toast.LENGTH_SHORT).show()
                             Log.d("LoginFragment", "Login successful")
 
-                            // Fazer segunda solicitação para obter detalhes do usuário
                             authService.getUserDetails(it.userId).enqueue(object :
                                 Callback<RequestResult.Success<User>> {
                                 override fun onResponse(
