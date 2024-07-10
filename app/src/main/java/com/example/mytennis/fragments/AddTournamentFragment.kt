@@ -72,6 +72,13 @@ class AddTournamentFragment : Fragment() {
                 ) {
                     if (response.isSuccessful) {
                         Toast.makeText(requireContext(), "Torneio adicionado com sucesso", Toast.LENGTH_SHORT).show()
+
+                        // Navegar de volta para o menu do admin
+                        val adminMenuFragment = AdminMenuFragment()
+                        val transaction = requireActivity().supportFragmentManager.beginTransaction()
+                        transaction.replace(R.id.fragment_container, adminMenuFragment)
+                        transaction.addToBackStack(null)
+                        transaction.commit()
                     } else {
                         Toast.makeText(requireContext(), "Erro ao adicionar torneio", Toast.LENGTH_SHORT).show()
                     }
