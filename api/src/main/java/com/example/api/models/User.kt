@@ -1,8 +1,9 @@
+import com.example.api.models.Role
 
 data class User(
     val id: String,
     val email: String,
-    val role_id: String,
+    val role: Role,
     val password: String?,
     val name: String?,
     val address: String?,

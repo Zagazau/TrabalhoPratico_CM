@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.api.core.HttpClient
@@ -38,6 +39,7 @@ class SignupFragment : Fragment() {
         val emailEditText = view.findViewById<EditText>(R.id.email)
         val passwordEditText = view.findViewById<EditText>(R.id.password)
         val signupButton = view.findViewById<Button>(R.id.signup_button)
+        val signInLink = view.findViewById<TextView>(R.id.sign_in_link)
 
         signupButton.setOnClickListener {
             val firstName = firstNameEditText.text.toString()
@@ -46,7 +48,6 @@ class SignupFragment : Fragment() {
             val email = emailEditText.text.toString()
             val password = passwordEditText.text.toString()
 
-            // Usar o role_id fixo para usuários comuns
             val userRoleId = "5c3c1e78-eeff-416f-aeda-7d6578c95061"
 
             val registerRequest = RegisterRequest(
@@ -98,7 +99,14 @@ class SignupFragment : Fragment() {
             })
         }
 
-
+        // Adicionar OnClickListener para sign_in_link
+        signInLink.setOnClickListener {
+            val loginFragment = LoginFragment()
+            val transaction = requireActivity().supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.fragment_container, loginFragment)
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
 
         return view
     }
