@@ -6,18 +6,16 @@ import retrofit2.Retrofit
 import retrofit2.awaitResponse
 import retrofit2.converter.gson.GsonConverterFactory
 
-
-
 open class HttpClient<T>(service: Class<T>) {
     companion object {
-        private const val BASE_URL = "http://localhost:8080/api/"
+        private const val BASE_URL = "http://10.0.2.2:8080/api/"
     }
 
     private val client = OkHttpClient.Builder()
         .addInterceptor(AuthInterceptor())
         .build()
 
-    protected var api: T = Retrofit.Builder()
+    var api: T = Retrofit.Builder()
         .baseUrl(BASE_URL)
         .client(client)
         .addConverterFactory(GsonConverterFactory.create())
@@ -28,15 +26,25 @@ open class HttpClient<T>(service: Class<T>) {
         return try {
             val response = call.awaitResponse()
             if (response.isSuccessful) {
-                ResponseParser.Success(response)
+                RequestResult.Success(
+                    code = response.code(),
+                    message = response.message(),
+                    data = response.body()
+                )
             } else {
-                ResponseParser.Error(response)
+                RequestResult.Error(
+                    code = response.code(),
+                    message = "Request failed: ${response.message()}",
+                    errors = mapOf()
+                )
             }
         } catch (err: Exception) {
             RequestResult.Error(
-                500,
-                "API REQUEST FAILED: " + err.message,
-                mapOf())
+                code = 500,
+                message = "API request failed: ${err.message}",
+                errors = mapOf()
+            )
         }
     }
+
 }

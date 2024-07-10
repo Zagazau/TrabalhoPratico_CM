@@ -9,7 +9,11 @@ class AuthInterceptor : Interceptor {
         val token = TokenStorage.getInstance().getToken()
         val request = chain.request()
             .newBuilder()
-            .addHeader("Authorization", "Bearer $token")
+            .apply {
+                token?.let {
+                    addHeader("Authorization", "Bearer $it")
+                }
+            }
             .build()
         return chain.proceed(request)
     }
