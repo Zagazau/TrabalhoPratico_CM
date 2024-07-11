@@ -56,7 +56,7 @@ class AddGameFragment : Fragment() {
             transaction.addToBackStack(null)
             transaction.commit()
         }
-        // Fill tournament spinner
+
         torneioService.getTorneios().enqueue(object : Callback<RequestResult.Success<GetAllTorneiosResponse>> {
             override fun onResponse(call: Call<RequestResult.Success<GetAllTorneiosResponse>>, response: Response<RequestResult.Success<GetAllTorneiosResponse>>) {
                 if (response.isSuccessful) {
@@ -74,13 +74,11 @@ class AddGameFragment : Fragment() {
             }
         })
 
-        // Fill tournament type spinner
         val tournamentTypes = arrayOf("Simples")
         val tournamentTypeAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, tournamentTypes)
         tournamentTypeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         tournamentTypeSpinner.adapter = tournamentTypeAdapter
 
-        // Fill player spinners
         jogadorService.getJogadores().enqueue(object : Callback<List<Jogador>> {
             override fun onResponse(call: Call<List<Jogador>>, response: Response<List<Jogador>>) {
                 if (response.isSuccessful) {
@@ -102,7 +100,6 @@ class AddGameFragment : Fragment() {
             }
         })
 
-        // Add game button
         addButton.setOnClickListener {
             val selectedTournament = tournamentSpinner.selectedItem.toString().split(" (")[1].removeSuffix(")")
             val selectedType = tournamentTypeSpinner.selectedItem.toString()
@@ -120,7 +117,6 @@ class AddGameFragment : Fragment() {
             Log.d("AddGameFragment", "Data: $data")
             Log.d("AddGameFragment", "Duração: $duracao")
 
-            // Create request object
             val createJogoRequest = CreateJogoRequest(
                 torneio_id = selectedTournament,
                 data = data,
@@ -131,7 +127,6 @@ class AddGameFragment : Fragment() {
 
             Log.d("AddGameFragment", "CreateJogoRequest: $createJogoRequest")
 
-            // Call API to create game
             jogoService.createJogo(createJogoRequest).enqueue(object : Callback<RequestResult.Success<CreateJogosResponse>> {
                 override fun onResponse(call: Call<RequestResult.Success<CreateJogosResponse>>, response: Response<RequestResult.Success<CreateJogosResponse>>) {
                     Log.d("AddGameFragment", "onResponse called")
@@ -141,7 +136,6 @@ class AddGameFragment : Fragment() {
 
                     if (response.isSuccessful) {
                         Toast.makeText(requireContext(), "Jogo adicionado com sucesso", Toast.LENGTH_SHORT).show()
-                        // Navigate back to admin menu
                         val adminMenuFragment = AdminMenuFragment()
                         val transaction = requireActivity().supportFragmentManager.beginTransaction()
                         transaction.replace(R.id.fragment_container, adminMenuFragment)

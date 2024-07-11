@@ -36,7 +36,6 @@ class AddTournamentFragment : Fragment() {
         val endDateField = view.findViewById<EditText>(R.id.add_users_field_3)
         val addButton = view.findViewById<Button>(R.id.add_button)
 
-        // Setup Spinners
         val surfaces = arrayOf("Duro", "Relva", "Terra")
         val surfaceAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, surfaces)
         surfaceAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -47,7 +46,6 @@ class AddTournamentFragment : Fragment() {
         tournamentTypeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         tournamentTypeSpinner.adapter = tournamentTypeAdapter
 
-        // Add Tournament Button
         addButton.setOnClickListener {
             val nome = tournamentField.text.toString()
             val piso = surfaceSpinner.selectedItem.toString()
@@ -73,7 +71,6 @@ class AddTournamentFragment : Fragment() {
                     if (response.isSuccessful) {
                         Toast.makeText(requireContext(), "Torneio adicionado com sucesso", Toast.LENGTH_SHORT).show()
 
-                        // Navegar de volta para o menu do admin
                         val adminMenuFragment = AdminMenuFragment()
                         val transaction = requireActivity().supportFragmentManager.beginTransaction()
                         transaction.replace(R.id.fragment_container, adminMenuFragment)

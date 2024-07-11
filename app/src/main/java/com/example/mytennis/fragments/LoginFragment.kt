@@ -87,14 +87,13 @@ class LoginFragment : Fragment() {
                                         val user = response.body()?.data
                                         user?.let { userDetails ->
                                             Log.d("LoginFragment", "Received user details: $userDetails")
-                                            if (userDetails.role.id == "38e2bb15-b063-47a6-b13f-5b95813836a5") {
+                                            if (userDetails.role.id == "a7fac8bc-0455-41d3-81c7-9fd57d1a5c80") {
                                                 val adminMenuFragment = AdminMenuFragment()
                                                 val transaction = requireActivity().supportFragmentManager.beginTransaction()
                                                 transaction.replace(R.id.fragment_container, adminMenuFragment)
                                                 transaction.addToBackStack(null)
                                                 transaction.commit()
                                             } else {
-                                                // Navegar para o MainUserFragment
                                                 val mainUserFragment = MainUserFragment()
                                                 val transaction = requireActivity().supportFragmentManager.beginTransaction()
                                                 transaction.replace(R.id.fragment_container, mainUserFragment)

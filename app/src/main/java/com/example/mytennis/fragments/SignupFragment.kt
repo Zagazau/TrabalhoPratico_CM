@@ -48,7 +48,7 @@ class SignupFragment : Fragment() {
             val email = emailEditText.text.toString()
             val password = passwordEditText.text.toString()
 
-            val userRoleId = "5c3c1e78-eeff-416f-aeda-7d6578c95061"
+            val userRoleId = "736cb819-912d-4e1c-af78-f5b330a26920"
 
             val registerRequest = RegisterRequest(
                 name = "$firstName $lastName",
@@ -78,7 +78,6 @@ class SignupFragment : Fragment() {
                             Toast.makeText(requireContext(), "Signup successful", Toast.LENGTH_SHORT).show()
                             Log.d("SignupFragment", "Signup successful")
 
-                            // Navegar para o MainUserFragment
                             val mainUserFragment = MainUserFragment()
                             val transaction = requireActivity().supportFragmentManager.beginTransaction()
                             transaction.replace(R.id.fragment_container, mainUserFragment)
@@ -99,7 +98,6 @@ class SignupFragment : Fragment() {
             })
         }
 
-        // Adicionar OnClickListener para sign_in_link
         signInLink.setOnClickListener {
             val loginFragment = LoginFragment()
             val transaction = requireActivity().supportFragmentManager.beginTransaction()

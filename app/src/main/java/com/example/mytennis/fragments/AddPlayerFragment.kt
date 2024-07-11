@@ -63,7 +63,6 @@ class AddPlayerFragment : Fragment() {
                         if (result != null) {
                             Toast.makeText(requireContext(), "Jogador adicionado com sucesso", Toast.LENGTH_SHORT).show()
 
-                            // Navegar de volta para o menu do admin
                             val adminMenuFragment = AdminMenuFragment()
                             val transaction = requireActivity().supportFragmentManager.beginTransaction()
                             transaction.replace(R.id.fragment_container, adminMenuFragment)
