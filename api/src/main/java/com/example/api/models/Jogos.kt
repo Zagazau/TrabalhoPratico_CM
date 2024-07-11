@@ -3,6 +3,7 @@ data class Jogos(
     val torneio_id: String,
     val data: String,
     val duracao: String,
-    val arbitro: String
+    val arbitro: String,
+    val jogador: List<Jogador>
 )
 

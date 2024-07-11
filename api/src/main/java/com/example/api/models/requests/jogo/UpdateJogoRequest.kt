@@ -1,5 +1,6 @@
 package requests.jogo
 
+import Jogador
 import java.util.Date
 
 data class UpdateJogoRequest(
@@ -7,5 +8,5 @@ data class UpdateJogoRequest(
     val data: Date? = null,
     val duracao: Date? = null,
     val arbitro: String? = null,
-    val jogadores: List<JogadorResult>? = null
+    val jogadores: List<Jogador>? = null
 )

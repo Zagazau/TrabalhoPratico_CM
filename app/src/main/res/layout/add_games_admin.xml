@@ -131,16 +131,13 @@
                 android:textColor="#000000"
                 android:textSize="13sp" />
 
-            <EditText
-                android:id="@+id/player1_field"
+            <Spinner
+                android:id="@+id/player1_spinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:background="@drawable/rectangle_border"
-                android:hint="Nome do Jogador 1"
                 android:padding="10dp"
-                android:textColorHint="#999999"
-                android:textSize="13sp" />
+                android:background="@drawable/rectangle_border" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -150,18 +147,72 @@
                 android:textColor="#000000"
                 android:textSize="13sp" />
 
+            <Spinner
+                android:id="@+id/player2_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:padding="10dp"
+                android:background="@drawable/rectangle_border" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="Árbitro"
+                android:textColor="#000000"
+                android:textSize="13sp" />
+
             <EditText
-                android:id="@+id/player2_field"
+                android:id="@+id/arbitro_field"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 android:background="@drawable/rectangle_border"
-                android:hint="Nome do Jogador 2"
+                android:hint="Nome do Árbitro"
                 android:padding="10dp"
                 android:textColorHint="#999999"
                 android:textSize="13sp" />
-        </LinearLayout>
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="Data do Jogo"
+                android:textColor="#000000"
+                android:textSize="13sp" />
+
+            <EditText
+                android:id="@+id/data_field"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/rectangle_border"
+                android:hint="YYYY-MM-DDTHH:MM:SSZ"
+                android:padding="10dp"
+                android:textColorHint="#999999"
+                android:textSize="13sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="Duração do Jogo"
+                android:textColor="#000000"
+                android:textSize="13sp" />
+
+            <EditText
+                android:id="@+id/duracao_field"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/rectangle_border"
+                android:hint="YYYY-MM-DDTHH:MM:SSZ"
+                android:padding="10dp"
+                android:textColorHint="#999999"
+                android:textSize="13sp" />
+
+        </LinearLayout>
     </ScrollView>
 
     <Button
